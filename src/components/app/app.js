@@ -1,18 +1,33 @@
 import React from 'react';
-import Header from '../header/header';
+import cowsay from 'cowsay-browser';
+
+const faker = require('faker');
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
-    this.state.content = '';
+    this.state = {
+      content: cowsay.say({ text: 'say something funny' }),
+    };
+    this.handleCowsayGenerator = this.handleCowsayGenerator.bind(this);
+  }
+
+  handleCowsayGenerator() {
+    this.setState(() => {
+      return {
+        content: cowsay.say({ text: faker.lorem.words(3) }),
+      };
+    });
   }
 
   render() {
     return (
       <div className='normal-class'>
-        <Header/> {}
-        <h2> HI</h2>
+        <header>
+          <h1> Generate Cowsay Lorem</h1>
+        </header>
+        <pre> { this.state.content }</pre>
+        <button onClick={this.handleCowsayGenerator}> click me</button>
       </div>
     );
   }

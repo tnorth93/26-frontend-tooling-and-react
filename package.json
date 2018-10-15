@@ -35,5 +35,9 @@
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9",
     "webpack-merge": "^4.1.4"
+  },
+  "dependencies": {
+    "cowsay-browser": "^1.1.8",
+    "faker": "^4.1.0"
   }
 }
